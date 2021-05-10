@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.todo-input {
+  width: 100%;
+  color: $color-light;
+  font-size: 2em;
+  height: 3em;
+  background: $color-dark;
+  border: 1px solid $color-dark;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+}
