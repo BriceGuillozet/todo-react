@@ -1,6 +1,6 @@
 # ToDo List React
 
-Ceci est mon second projet React : une ToDo List dynamique
+Ceci est mon second projet React : une ToDo List !
 
 
 ## Coded with

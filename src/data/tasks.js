@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    label: 'Coder une todolist en impératif',
+    label: 'Coder un convertisseur de devises en React',
     done: true,
   },
   {
@@ -11,12 +11,12 @@ export default [
   },
   {
     id: 4,
-    label: 'Appeler Jean-Marc',
+    label: 'Faire les courses',
     done: false,
   },
   {
     id: 8,
-    label: 'Préparer des crêpes',
+    label: 'Cuisiner un aïoli',
     done: false,
   },
 ];

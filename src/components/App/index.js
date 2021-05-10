@@ -21,7 +21,12 @@ const App = () => (
     <Counter
       total={1}
     />
-    <Tasks />
+    <Tasks
+      list={data}
+      onTodoCheck={(todo) => {
+        console.log(todo);
+      }}
+    />
   </div>
 );
 
