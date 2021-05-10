@@ -17,6 +17,9 @@
   }
   &--done {
     opacity: 0.5;
+  } 
+  &--fav {
+    background-color: $color-alt;
   }
   &--text {
     margin-left: 0.5em;

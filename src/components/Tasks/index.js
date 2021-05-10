@@ -1,29 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
 import './style.scss';
 
-const Tasks = ({ list, onTodoCheck }) => (
-
+const Tasks = ({ list, onTodoCheck, onTodoRemove, onTodoFav }) => (
   <ul className="todo-list">
-    {
-      list.map((todoObject) => (
-        <li
-          key={todoObject.id}
-          className={todoObject.done ? 'todo todo--done' : 'todo'}
+    {list.map((todoObject) => (
+      <li
+        key={todoObject.id}
+        className={classname({
+          todo: true,
+          'todo--done': todoObject.done,
+          'todo--fav': todoObject.fav,
+        })}
+      >
+        <input
+          checked={todoObject.done}
+          className="todo--checkbox"
+          type="checkbox"
+          onChange={() => {
+            onTodoCheck(todoObject);
+          }}
+        />
+        <span className="todo--text">{todoObject.label}</span>
+        <button
+          type="button"
+          className="todo--remove"
+          onClick={() => {
+            onTodoRemove(todoObject);
+          }}
         >
-          <input
-            checked={todoObject.done}
-            className="todo--checkbox"
-            type="checkbox"
-            onChange={() => {
-              onTodoCheck(todoObject);
-            }}
-          />
-          <span className="todo--text">{todoObject.label}</span>
-        </li>
-      ))
-    }
-
+          X
+        </button>
+        <button
+          type="button"
+          className="todo--remove"
+          onClick={() => {
+            onTodoFav(todoObject);
+          }}
+        >
+          {todoObject.fav ? '⭐' : '✰' }
+        </button>
+      </li>
+    ))}
   </ul>
 );
 
@@ -36,6 +55,8 @@ Tasks.propTypes = {
     }),
   ).isRequired,
   onTodoCheck: PropTypes.func.isRequired,
+  onTodoRemove: PropTypes.func.isRequired,
+  onTodoFav: PropTypes.func.isRequired,
 };
 
 export default Tasks;
