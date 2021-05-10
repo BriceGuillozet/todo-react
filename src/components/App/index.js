@@ -27,7 +27,7 @@ class TodoApp extends React.Component {
       label: inputText,
       done: false,
     };
-    const newList = [...list, newTodo];
+    const newList = [newTodo, ...list];
     this.setState({
       list: newList,
       inputText: '',
@@ -49,29 +49,38 @@ class TodoApp extends React.Component {
     this.setState({
       list: newList,
     });
-  }
+  };
 
-  render() {
-    const { list, inputText } = this.state;
-    const stillTodoCount = list.filter((todo) => !todo.done).length;
+ getSortedTodos = () => {
+   const { list } = this.state;
 
-    return (
-      <div className="app">
-        <Form
-          inputText={inputText}
-          onInputChange={this.changeInputText}
-          onFormSubmit={this.addTodo}
-        />
-        <Counter
-          total={stillTodoCount}
-        />
-        <Tasks
-          list={list}
-          onTodoCheck={this.handleTodoCheck}
-        />
-      </div>
-    );
-  }
+   const notDone = list.filter((todoObject) => !todoObject.done);
+   const done = list.filter((todoObject) => todoObject.done);
+
+   return [...notDone, ...done];
+ };
+
+ render() {
+   const { list, inputText } = this.state;
+   const stillTodoCount = list.filter((todo) => !todo.done).length;
+
+   return (
+     <div className="app">
+       <Form
+         inputText={inputText}
+         onInputChange={this.changeInputText}
+         onFormSubmit={this.addTodo}
+       />
+       <Counter
+         total={stillTodoCount}
+       />
+       <Tasks
+         list={this.getSortedTodos()}
+         onTodoCheck={this.handleTodoCheck}
+       />
+     </div>
+   );
+ }
 }
 
 export default TodoApp;
