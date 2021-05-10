@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import classname from 'classnames';
 import './style.scss';
 
-const Tasks = ({ list, onTodoCheck, onTodoRemove, onTodoFav }) => (
+const Tasks = ({
+  list, onTodoCheck, onTodoRemove, onTodoFav,
+}) => (
   <ul className="todo-list">
     {list.map((todoObject) => (
       <li
