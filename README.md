@@ -2,6 +2,8 @@
 
 Ceci est mon second projet React : une ToDo List !
 
+![](todo-list.gif)
+
 
 ## Coded with
 
