@@ -30,7 +30,7 @@ const Tasks = ({ list, onTodoCheck }) => (
 Tasks.propTypes = {
   list: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       done: PropTypes.bool.isRequired,
     }),
